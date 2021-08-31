@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Homework_SkillTree.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,20 @@ namespace Homework_SkillTree.Controllers
     {
         public ActionResult Index()
         {
+            List<CategoryInputVM> categoryListVM = new List<CategoryInputVM>();
+            var random = new Random();
+            for (int i = 0; i < 100; i++)
+            {
+                CategoryInputVM category = new CategoryInputVM
+                {
+                    id = i + 1,
+                    Categories = (MoneyEnum)(random.Next(i) % 2),
+                    Date = DateTime.Now.AddDays(-i),
+                    Money = random.Next(i + 1000)
+                };
+                categoryListVM.Add(category);
+                ViewBag.Category = categoryListVM;
+            }
             return View();
         }
 
