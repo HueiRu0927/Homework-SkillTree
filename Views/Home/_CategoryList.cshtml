@@ -1,8 +1,8 @@
-﻿@model Homework_SkillTree.Models.CategoryInputVM
+﻿@model Homework_SkillTree.Models.CategoryInputViewModel
 @using Homework_SkillTree.Models;
 
 @{
-    List<CategoryInputVM> categoryListVM = (List<CategoryInputVM>)ViewBag.Category;
+    List<CategoryInputViewModel> categoryListViewModel = (List<CategoryInputViewModel>)ViewBag.Category;
 }
 
 <div class="row">
@@ -16,13 +16,13 @@
                 <th>金額</th>
             </tr>
 
-            @for (var i = 0; i < categoryListVM.Count; i++)
+            @foreach (var item in categoryListViewModel)
             {
                 <tr>
-                    <td>@categoryListVM.ElementAt(i).id</td>
-                    <td>@categoryListVM.ElementAt(i).Categories</td>
-                    <td>@categoryListVM.ElementAt(i).Date</td>
-                    <td>@categoryListVM.ElementAt(i).Money</td>
+                    <td>@item.id</td>
+                    <td>@item.Categories</td>
+                    <td>@item.Date</td>
+                    <td>@item.Money</td>
                 </tr>
             }
 
