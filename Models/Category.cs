@@ -7,7 +7,8 @@ using System.Web;
 
 namespace Homework_SkillTree.Models
 {
-	//public class CategoryListViewModel
+	//public class CategoryListVM
+	//{
 	//	public IList<CategoryInputVM> CategoriesInputVM { get; set; }
 	//}
 
