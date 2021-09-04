@@ -7,8 +7,7 @@ using System.Web;
 
 namespace Homework_SkillTree.Models
 {
-	//public class CategoryListVM
-	//{
+	//public class CategoryListViewModel
 	//	public IList<CategoryInputVM> CategoriesInputVM { get; set; }
 	//}
 
@@ -17,9 +16,8 @@ namespace Homework_SkillTree.Models
 		支出,
 		收入
 	}
-	public class CategoryInputVM
+	public class CategoryInputViewModel
 	{
-		[Display(Name = "#")]
 		public int id { get; set; }
 		[Display(Name = "類別")]
 		public MoneyEnum Categories { get; set; }
