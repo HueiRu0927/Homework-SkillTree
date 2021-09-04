@@ -11,19 +11,19 @@ namespace Homework_SkillTree.Controllers
     {
         public ActionResult Index()
         {
-            List<CategoryInputVM> categoryListVM = new List<CategoryInputVM>();
+            List<CategoryInputViewModel> categoryListViewModel = new List<CategoryInputViewModel>();
             var random = new Random();
             for (int i = 0; i < 100; i++)
             {
-                CategoryInputVM category = new CategoryInputVM
+                CategoryInputViewModel category = new CategoryInputViewModel
                 {
                     id = i + 1,
                     Categories = (MoneyEnum)(random.Next(i) % 2),
                     Date = DateTime.Now.AddDays(-i),
                     Money = random.Next(i + 1000)
                 };
-                categoryListVM.Add(category);
-                ViewBag.Category = categoryListVM;
+                categoryListViewModel.Add(category);
+                ViewBag.Category = categoryListViewModel;
             }
             return View();
         }
