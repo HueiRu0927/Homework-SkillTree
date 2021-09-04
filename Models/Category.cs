@@ -18,7 +18,6 @@ namespace Homework_SkillTree.Models
 	}
 	public class CategoryInputViewModel
 	{
-		public int id { get; set; }
 		[Display(Name = "類別")]
 		public MoneyEnum Categories { get; set; }
 		[Display(Name = "金額")]

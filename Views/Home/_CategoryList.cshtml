@@ -15,17 +15,19 @@
                 <th>日期</th>
                 <th>金額</th>
             </tr>
-
-            @foreach (var item in categoryListViewModel)
-            {
-                <tr>
-                    <td>@item.id</td>
-                    <td>@item.Categories</td>
-                    <td>@item.Date</td>
-                    <td>@item.Money</td>
-                </tr>
+            @{
+                var i = 1;
+                foreach (var item in categoryListViewModel)
+                {
+                    <tr>
+                        <td>@(i++)</td>
+                        <td>@item.Categories</td>
+                        <td>@item.Date</td>
+                        <td>@item.Money</td>
+                    </tr>
+                }
             }
-
+            
         </table>
     </div>
 </div>

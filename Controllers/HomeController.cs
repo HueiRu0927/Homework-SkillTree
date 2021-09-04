@@ -17,7 +17,6 @@ namespace Homework_SkillTree.Controllers
             {
                 CategoryInputViewModel category = new CategoryInputViewModel
                 {
-                    id = i + 1,
                     Categories = (MoneyEnum)(random.Next(i) % 2),
                     Date = DateTime.Now.AddDays(-i),
                     Money = random.Next(i + 1000)
