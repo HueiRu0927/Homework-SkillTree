@@ -4,8 +4,9 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
-namespace Homework_SkillTree.Models
+namespace Homework_SkillTree.ViewModel
 {
 	public class CategoryListViewModel
 	{
