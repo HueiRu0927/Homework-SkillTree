@@ -10,7 +10,7 @@ namespace Homework_SkillTree.ViewModel
 {
 	public class CategoryViewModel
 	{
-		public IList<CategoryInputViewModel> CategoriesInputVM { get; set; }
+		public IList<CategoryInputViewModel> CategoryListViewModel { get; set; }
 		public CategoryInputViewModel ListViewModel { get; set;}
 	}
 
