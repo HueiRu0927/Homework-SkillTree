@@ -131,6 +131,7 @@
     </Compile>
     <Compile Include="Models\AccountBook.cs" />
     <Compile Include="Models\Model1.cs" />
+    <Compile Include="Service\CategoryList.cs" />
     <Compile Include="ViewModel\Category.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
