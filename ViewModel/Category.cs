@@ -30,11 +30,12 @@ namespace Homework_SkillTree.ViewModel
 		[Range(0,int.MaxValue)]
 		[Display(Name = "金額")]
 		public int Money { get; set; }
+		[Remote("CheckDate", "Validate", "", ErrorMessage ="日期不能大於今日")]
 		[Required]
 		[Display(Name = "日期")]
 		[DataType(DataType.Date)]
-		[DisplayFormat(DataFormatString ="{0:yyyy-MM-dd}",ApplyFormatInEditMode =true)]
-		public DateTime Date { get; set; }
+		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+		public DateTime Date { get; set; } = DateTime.Now;
 		[Required(ErrorMessage ="請輸入備註!!!")]
 		[StringLength(100)]
 		[Display(Name = "備註")]
