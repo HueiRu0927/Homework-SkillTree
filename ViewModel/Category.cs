@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace Homework_SkillTree.ViewModel
 {
-	public class CategoryListViewModel
+	public class CategoryViewModel
 	{
 		public IList<CategoryInputViewModel> CategoriesInputVM { get; set; }
 		public CategoryInputViewModel ListViewModel { get; set;}
