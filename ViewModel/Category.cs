@@ -7,24 +7,35 @@ using System.Web;
 
 namespace Homework_SkillTree.Models
 {
-	//public class CategoryListViewModel
-	//	public IList<CategoryInputVM> CategoriesInputVM { get; set; }
-	//}
+	public class CategoryListViewModel
+	{
+		public IList<CategoryInputViewModel> CategoriesInputVM { get; set; }
+		public CategoryInputViewModel ListViewModel { get; set;}
+	}
 
 	public enum MoneyEnum
 	{
-		支出,
-		收入
+		[Display(Name = "支出")]
+		Expend,
+		[Display(Name ="收入")]
+		Income
 	}
 	public class CategoryInputViewModel
 	{
+		[Required(ErrorMessage ="請輸入類別!!!")]
 		[Display(Name = "類別")]
 		public MoneyEnum Categories { get; set; }
+		[Required(ErrorMessage ="請輸入金額!!!")]
+		[Range(0,int.MaxValue)]
 		[Display(Name = "金額")]
 		public int Money { get; set; }
+		[Required]
 		[Display(Name = "日期")]
 		[DataType(DataType.Date)]
+		[DisplayFormat(DataFormatString ="{0:yyyy-MM-dd}",ApplyFormatInEditMode =true)]
 		public DateTime Date { get; set; }
+		[Required(ErrorMessage ="請輸入備註!!!")]
+		[StringLength(100)]
 		[Display(Name = "備註")]
 		public string Note { get; set; }
 	}
