@@ -14,7 +14,7 @@ namespace Homework_SkillTree.Controllers
             return View();
         }
 
-        public ActionResult CheckDate([Bind(Prefix = "ListViewModel.Date")] DateTime Date)
+        public ActionResult CheckDate([Bind(Prefix = "Date")] DateTime Date)
         {
             var result = Date.CompareTo(DateTime.Now.Date);
             return Json(result < 0, JsonRequestBehavior.AllowGet);
