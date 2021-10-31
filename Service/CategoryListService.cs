@@ -21,7 +21,7 @@ namespace Homework_SkillTree.Service
 		/// 取得所有的紀錄
 		/// </summary>
 		/// <returns></returns>
-		public CategoryViewModel GetCategoryViewModel()
+		public List<CategoryInputViewModel> GetCategoryViewModel()
 		{
 			if (_model1.AccountBook == null)
 			{
@@ -29,16 +29,15 @@ namespace Homework_SkillTree.Service
 			}
 
 			var accountBooks = _model1.AccountBook.ToList();
-			var categorylist = new CategoryViewModel();
-
-			categorylist.CategoryListViewModel = accountBooks.Select(x => new CategoryInputViewModel()
+			
+			return accountBooks.Select(x => new CategoryInputViewModel()
 			{
 				Categories = (MoneyEnum)x.Categoryyy,
 				Date = x.Dateee,
 				Money = x.Amounttt,
 				Note = x.Remarkkk
 			}).OrderByDescending(x => x.Date).ToList();
-			return categorylist;
+			
 		}
 
 		/// <summary>
@@ -55,6 +54,11 @@ namespace Homework_SkillTree.Service
 				Dateee = inputViewModel.Date,
 				Remarkkk = inputViewModel.Note
 			});
+		
+		}
+
+		public void Save()
+		{
 			_model1.SaveChanges();
 		}
 	}

@@ -22,22 +22,22 @@ namespace Homework_SkillTree.Controllers
         public ActionResult Index()
         {
             var inputViewModel = new CategoryInputViewModel();
-            var categorylistViewModel = categoryList.GetCategoryViewModel();
-            categorylistViewModel.ListViewModel = inputViewModel;
-            return View(categorylistViewModel);
+            return View(inputViewModel);
         }
 
-        [HttpPost, ActionName("Index")]
-        public ActionResult Index(CategoryViewModel inputViewModel)
+        [HttpPost]
+        public ActionResult Index(CategoryInputViewModel inputViewModel)
         {
 
             if (ModelState.IsValid)
             {
-                categoryList.Add(inputViewModel.ListViewModel);
+                categoryList.Add(inputViewModel);
+                categoryList.Save();
                 return RedirectToAction("Index");
             }
-            return RedirectToAction("Index", inputViewModel);
+            return View(inputViewModel);
         }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -50,26 +50,6 @@ namespace Homework_SkillTree.Controllers
 
             return View();
         }
-        /// <summary>
-        /// 製作假資料list
-        /// </summary>
-        /// <returns></returns>
-        //public ActionResult Index()
-        //{
-        //    List<CategoryInputViewModel> categoryListViewModel = new List<CategoryInputViewModel>();
-        //    var random = new Random();
-        //    for (int i = 0; i < 100; i++)
-        //    {
-        //        CategoryInputViewModel category = new CategoryInputViewModel
-        //        {
-        //            Categories = (MoneyEnum)(random.Next(i) % 2),
-        //            Date = DateTime.Now.AddDays(-i),
-        //            Money = random.Next(i + 1000)
-        //        };
-        //        categoryListViewModel.Add(category);
-        //        ViewBag.Category = categoryListViewModel;
-        //    }
-        //    return View();
-        //}
+       
     }
 }
