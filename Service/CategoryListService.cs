@@ -7,11 +7,11 @@ using Homework_SkillTree.Models;
 
 namespace Homework_SkillTree.Service
 {
-	public class CategoryList
+	public class CategoryListService
 	{
 		private readonly Model1 _model1;
 
-		public CategoryList()
+		public CategoryListService()
 		{
 			this._model1 = new Model1();
 		}

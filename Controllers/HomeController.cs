@@ -12,11 +12,11 @@ namespace Homework_SkillTree.Controllers
     public class HomeController : Controller
     {
 
-        private readonly CategoryList categoryList;
+        private readonly CategoryListService categoryList;
 
         public HomeController()
         {
-            this.categoryList = new CategoryList();
+            this.categoryList = new CategoryListService();
         }
 
         public ActionResult Index()
