@@ -8,12 +8,7 @@ using System.Web.Mvc;
 
 namespace Homework_SkillTree.ViewModel
 {
-	public class CategoryViewModel
-	{
-		public IList<CategoryInputViewModel> CategoryListViewModel { get; set; }
-		public CategoryInputViewModel ListViewModel { get; set;}
-	}
-
+	
 	public enum MoneyEnum
 	{
 		[Display(Name = "支出")]
@@ -34,7 +29,6 @@ namespace Homework_SkillTree.ViewModel
 		[Required]
 		[Display(Name = "日期")]
 		[DataType(DataType.Date)]
-		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 		public DateTime Date { get; set; } = DateTime.Now;
 		[Required(ErrorMessage ="請輸入備註!!!")]
 		[StringLength(100)]
