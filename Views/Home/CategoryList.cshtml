@@ -1,4 +1,4 @@
-﻿@model IList<Homework_SkillTree.ViewModel.CategoryInputViewModel>
+﻿@model IEnumerable<Homework_SkillTree.ViewModel.CategoryInputViewModel>
 @using Homework_SkillTree.Models;
 
 @*@{
@@ -11,9 +11,9 @@
 
             <tr>
                 <th>#</th>
-                <th>@Html.DisplayNameFor(x=>x.FirstOrDefault().Categories)</th>
-                <th>@Html.DisplayNameFor(x=>x.FirstOrDefault().Date)</th>
-                <th>@Html.DisplayNameFor(x=>x.FirstOrDefault().Money)</th>
+                <th>@Html.DisplayNameFor(x=>x.Categories)</th>
+                <th>@Html.DisplayNameFor(x=>x.Date)</th>
+                <th>@Html.DisplayNameFor(x=>x.Money)</th>
             </tr>
             @{
                 var i = 1;

@@ -19,6 +19,12 @@ namespace Homework_SkillTree.Controllers
             this.categoryList = new CategoryListService();
         }
 
+        public ActionResult CategoryList()
+        {
+            var category = categoryList.GetCategoryViewModel();
+            return View(category);
+        }
+
         public ActionResult Index()
         {
             var inputViewModel = new CategoryInputViewModel();

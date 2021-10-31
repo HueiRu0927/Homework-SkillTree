@@ -1,11 +1,11 @@
 ﻿@using Homework_SkillTree.ViewModel
 @model MoneyEnum
 
-@if (Model.HasFlag(MoneyEnum.Income))
+@if (Model == MoneyEnum.Income)
 {
     <span class="text-primary">收入</span>
 }
-else
+else if(Model == MoneyEnum.Expend)
 { 
     <span class="text-danger">支出</span>
 }
