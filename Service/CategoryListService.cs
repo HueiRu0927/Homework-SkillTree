@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using Homework_SkillTree.ViewModel;
 using Homework_SkillTree.Models;
+using X.PagedList;
 
 namespace Homework_SkillTree.Service
 {
@@ -21,14 +22,23 @@ namespace Homework_SkillTree.Service
 		/// 取得所有的紀錄
 		/// </summary>
 		/// <returns></returns>
-		public List<CategoryInputViewModel> GetCategoryViewModel()
+		public List<CategoryInputViewModel> GetCategoryViewModel(int? year, int? month)
 		{
 			if (_model1.AccountBook == null)
-			{
 				return null;
-			}
 
-			var accountBooks = _model1.AccountBook.ToList();
+			
+
+			var accountBooks = new List<AccountBook>();
+
+			if (year != null && month != null)
+			{
+				accountBooks = _model1.AccountBook.Where(x => x.Dateee.Year == year && x.Dateee.Month == month).ToList();
+			}
+			else
+			{
+				accountBooks = _model1.AccountBook.ToList();
+			}
 			
 			return accountBooks.Select(x => new CategoryInputViewModel()
 			{

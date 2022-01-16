@@ -19,13 +19,14 @@ namespace Homework_SkillTree.Controllers
             this.categoryList = new CategoryListService();
         }
 
-        public ActionResult CategoryList()
+        public ActionResult CategoryList(int? year, int? month)
         {
-            var category = categoryList.GetCategoryViewModel();
+            var category = categoryList.GetCategoryViewModel(year,month);
             return View(category);
         }
 
         [Route("~/skilltree")]
+        [Route("~/skilltree/{year:length(4)}/{month:length(2)}")]
         public ActionResult Index()
         {
             var inputViewModel = new CategoryInputViewModel();
