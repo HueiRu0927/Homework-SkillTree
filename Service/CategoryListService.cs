@@ -11,7 +11,7 @@ namespace Homework_SkillTree.Service
 	public class CategoryListService
 	{
 		private readonly Model1 _model1;
-
+		private const int PageSize = 10;
 		public CategoryListService()
 		{
 			this._model1 = new Model1();
@@ -22,12 +22,13 @@ namespace Homework_SkillTree.Service
 		/// 取得所有的紀錄
 		/// </summary>
 		/// <returns></returns>
-		public List<CategoryInputViewModel> GetCategoryViewModel(int? year, int? month)
+		public IPagedList<CategoryInputViewModel> GetCategoryViewModel(int? year, int? month, int? page)
 		{
 			if (_model1.AccountBook == null)
 				return null;
 
-			
+			if (page < 1)
+				return null;
 
 			var accountBooks = new List<AccountBook>();
 
@@ -46,7 +47,7 @@ namespace Homework_SkillTree.Service
 				Date = x.Dateee,
 				Money = x.Amounttt,
 				Note = x.Remarkkk
-			}).OrderByDescending(x => x.Date).ToList();
+			}).OrderByDescending(x => x.Date).ToPagedList(page ?? 1, PageSize);
 			
 		}
 

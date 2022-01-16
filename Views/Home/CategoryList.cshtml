@@ -1,27 +1,31 @@
 ﻿@model IEnumerable<Homework_SkillTree.ViewModel.CategoryInputViewModel>
+@using X.PagedList;
+@using X.PagedList.Mvc;
 
 
+<div class="col-md-12">
+    <table class="table table-bordered table-hover">
 
-    <div class="col-md-12">
-        <table class="table table-bordered table-hover">
-
-            <tr>
-                <th>#</th>
-                <th>@Html.DisplayNameFor(x=>x.Categories)</th>
-                <th>@Html.DisplayNameFor(x=>x.Date)</th>
-                <th>@Html.DisplayNameFor(x=>x.Money)</th>
-            </tr>
-            @{
-                var i = 1;
-                foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@(i++)</td>
-                        <td class="@item.Categories">@Html.DisplayFor(x=>item.Categories ,"_Categoriescolor")</td>
-                        <td class="@item.Date">@Html.DisplayFor(x=>item.Date,"_DateTime")</td>
-                        <td class="@item.Money">@Html.DisplayFor(x=>item.Money)</td>
-                    </tr>
-                }
+        <tr>
+            <th>#</th>
+            <th>@Html.DisplayNameFor(x => x.Categories)</th>
+            <th>@Html.DisplayNameFor(x => x.Date)</th>
+            <th>@Html.DisplayNameFor(x => x.Money)</th>
+        </tr>
+        @{
+            var i = 1;
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@(i++)</td>
+                    <td class="@item.Categories">@Html.DisplayFor(x => item.Categories, "_Categoriescolor")</td>
+                    <td class="@item.Date">@Html.DisplayFor(x => item.Date, "_DateTime")</td>
+                    <td class="@item.Money">@Html.DisplayFor(x => item.Money)</td>
+                </tr>
             }
-        </table>
-    </div>
+        }
+    </table>
+</div>
+<div class="col-md-12 text-center">
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+</div>
