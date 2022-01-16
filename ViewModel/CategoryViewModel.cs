@@ -21,6 +21,7 @@ namespace Homework_SkillTree.ViewModel
 		[Required(ErrorMessage ="請輸入類別!!!")]
 		[Display(Name = "類別")]
 		public MoneyEnum Categories { get; set; }
+
 		[Required(ErrorMessage ="請輸入金額!!!")]
 		[Range(0,int.MaxValue)]
 		[Display(Name = "金額")]
