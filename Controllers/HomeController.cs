@@ -25,6 +25,7 @@ namespace Homework_SkillTree.Controllers
             return View(category);
         }
 
+        [Route("~/skilltree")]
         public ActionResult Index()
         {
             var inputViewModel = new CategoryInputViewModel();
